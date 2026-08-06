@@ -9,12 +9,7 @@
     <style>
         body {
             margin: 0;
-            /* FIXED: Replaced black background with a full-screen Toyota Yaris canvas */
-            background-image: url("https://tenor.com");
-            background-size: cover;       /* Stretches the car to fill the entire browser screen */
-            background-position: center;  /* Centers the background image positioning */
-            background-repeat: no-repeat; /* Prevents the background from repeating awkwardly */
-            
+            background-color: #000;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,19 +18,17 @@
             cursor: pointer; /* Visual cue telling users they can click */
         }
 
-        /* Scales the foreground bouncing Yaris dynamically over the background */
+        /* Scales the bouncing Yaris dynamically to fit any display */
         img {
             max-width: 100%;
             max-height: 100vh;
             object-fit: contain;
-            position: relative;
-            z-index: 10; /* Ensures the main GIF floats cleanly on top */
         }
     </style>
 </head>
 <body>
 
-    <!-- Centered bouncing Yaris GIF floating over the Yaris background -->
+    <!-- Bouncing Yaris GIF centered on screen -->
     <img src="https://tenor.com" alt="Bouncing Yaris">
 
     <script>
