@@ -3,47 +3,57 @@
 <head>
     <title>Bouncing Yaris</title>
     
-    <!-- This adds the car emoji to your browser tab title icon -->
+    <!-- Car emoji title icon for the browser tab -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://w3.org viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚗</text></svg>">
 
     <style>
         body {
             margin: 0;
-            background-color: #000;
+            /* FIXED: Replaced black background with a full-screen Toyota Yaris canvas */
+            background-image: url("https://tenor.com");
+            background-size: cover;       /* Stretches the car to fill the entire browser screen */
+            background-position: center;  /* Centers the background image positioning */
+            background-repeat: no-repeat; /* Prevents the background from repeating awkwardly */
+            
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             overflow: hidden;
-            cursor: pointer;
+            cursor: pointer; /* Visual cue telling users they can click */
         }
 
-        /* Fixed image styling so the Yaris scales dynamically and stays visible */
+        /* Scales the foreground bouncing Yaris dynamically over the background */
         img {
             max-width: 100%;
             max-height: 100vh;
             object-fit: contain;
+            position: relative;
+            z-index: 10; /* Ensures the main GIF floats cleanly on top */
         }
     </style>
 </head>
 <body>
 
-    <!-- Removed hardcoded width/height attributes so the CSS styles can handle sizing perfectly -->
+    <!-- Centered bouncing Yaris GIF floating over the Yaris background -->
     <img src="https://tenor.com" alt="Bouncing Yaris">
 
     <script>
+        // Perfect relative path for GitHub Pages root directory
         const yarisMusic = new Audio("for30minutes.mp3");
+        
+        // Loop the song indefinitely
         yarisMusic.loop = true;
 
-        // Try to play immediately
+        // Attempt silent or background autoplay (safeguard)
         yarisMusic.play().catch(() => {
-            console.log("Autoplay blocked. Click anywhere on the webpage to start the music.");
+            console.log("Autoplay blocked by browser security. Audio will start on the first page click.");
         });
 
-        // Play immediately on the very first click anywhere on the screen
+        // Instant playback trigger on the absolute first click anywhere on the page
         window.addEventListener('click', () => {
             yarisMusic.play();
-        }, { once: true });
+        }, { once: true }); // Automatically removes this listener after running once
     </script>
 
 </body>
